@@ -53,10 +53,10 @@ public class GettingStartedApplication {
             //statement.executeUpdate("INSERT INTO table_timestamp_and_random_string VALUES (now(), '" + getRandomString() + "')");
             statement.executeUpdate("INSERT INTO table_timestamp_and_random_string VALUES (now(), '" + "Hello" + "')");
 
-            final var resultSet = statement.executeQuery("SELECT tick FROM table_timestamp_and_random_string");
+            final var resultSet = statement.executeQuery("SELECT CONCAT(tick, ' ', random_string) AS tick FROM table_timestamp_and_random_string");
             final var output = new ArrayList<>();
             while (resultSet.next()) {
-                output.add("Read from DB: " + resultSet.getTimestamp("tick") + " " + resultSet.getTimestamp("random_string"));
+                output.add("Read from DB: " + resultSet.getTimestamp("tick"));
             }
 
             model.put("records", output);
