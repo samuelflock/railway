@@ -27,6 +27,23 @@ public class GettingStartedApplication {
     public String index() {
         return "index";
     }
+    
+    public static String getRandomString() {
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        int length = 7;
+
+        for(int i = 0; i < length; i++) {
+            int index = random.nextInt(alphabet.length());
+            char randomChar = alphabet.charAt(index);
+            sb.append(randomChar);
+        }
+
+        String randomString = sb.toString();
+        return randomString;
+    }
 
     @GetMapping("/database")
     String database(Map<String, Object> model) {
@@ -52,22 +69,5 @@ public class GettingStartedApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(GettingStartedApplication.class, args);
-    }
-
-    public static String getRandomString() {
-        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-        StringBuilder sb = new StringBuilder();
-        Random random = new Random();
-        int length = 7;
-
-        for(int i = 0; i < length; i++) {
-            int index = random.nextInt(alphabet.length());
-            char randomChar = alphabet.charAt(index);
-            sb.append(randomChar);
-        }
-
-        String randomString = sb.toString();
-        return randomString;
     }
 }
