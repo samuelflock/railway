@@ -55,19 +55,19 @@ public class GettingStartedApplication {
     }
 
     public static String getRandomString() {
-        return getRandomString(15);
-    }
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    public static String getRandomString(int numChars) {
-        int chars = RAND.nextInt(numChars);
-        while (chars == 0)
-            chars = RAND.nextInt(numChars);
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < chars; i++) {
-            int index = 97 + RAND.nextInt(26);
-            char c = (char) index;
-            sb.append(c);
-        } // for
-        return sb.toString();
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        int length = 7;
+
+        for(int i = 0; i < length; i++) {
+            int index = random.nextInt(alphabet.length());
+            char randomChar = alphabet.charAt(index);
+            sb.append(randomChar);
+        }
+
+        String randomString = sb.toString();
+        return randomString;
     }
 }
