@@ -53,21 +53,4 @@ public class GettingStartedApplication {
     public static void main(String[] args) {
         SpringApplication.run(GettingStartedApplication.class, args);
     }
-
-    public static String getRandomString() {
-        return getRandomString(15);
-    }
-
-    public static String getRandomString(int numChars) {
-        int chars = RAND.nextInt(numChars);
-        while (chars == 0)
-            chars = RAND.nextInt(numChars);
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < chars; i++) {
-            int index = 97 + RAND.nextInt(26);
-            char c = (char) index;
-            sb.append(c);
-        } // for
-        return sb.toString();
-    }
 }
