@@ -28,7 +28,7 @@ public class GettingStartedApplication {
         return "index";
     }
     
-    public static String getRandomString() {
+    public String getRandomString() {
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         StringBuilder sb = new StringBuilder();
